@@ -12,8 +12,8 @@ function Particle(x, y) {
   this.y = y;
   this.vx = (Math.random() - 0.5) * 0.5;
   this.vy = (Math.random() - 0.5) * 0.5;
-  this.radius = Math.random() * 3.5;
-  this.color = Math.random() > 0.6 ? "#a020f0" : "white"; 
+  this.radius = Math.random() * 3.7;
+  this.color = Math.random() > 0.4 ? "#a020f0" : "white"; 
 
   this.draw = function () {
     ctx.beginPath();
