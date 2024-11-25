@@ -1,17 +1,225 @@
-body {
-    background-color: black;
-    color: white;
+/* Reset y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: 'Josefin Sans', sans-serif;
+    color: white;
+    scroll-behavior: smooth;
     font-style: italic;
-
-}
-
-h1, h2 {
+  }
+  
+  h1, h2 {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 700; 
-}
+  }
 
-p {
+  p {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400; 
-}
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    z-index: 100;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  
+  nav a:hover {
+    color: #a020f0;
+  }
+  
+  section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Sección 1: Inicio */
+  #inicio {
+    position: relative;
+    overflow: hidden;
+    background: black;
+  }
+  
+  #inicio h1 {
+    position: absolute;
+    z-index: 1;
+    font-size: 4rem;
+    color: white;
+  }
+  
+  #galaxy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  /* Sección 2: About Me */
+#about-me {
+    background: #111111;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  #about-me h2 {
+    font-size: 2.5rem;
+    color: #a020f0;
+    margin-bottom: 20px;
+  }
+  
+  #about-me p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #d3d3d3;
+  }
+  
+  /* Sección 3: Proyectos */
+  #proyectos {
+    background: #1a1a1a;
+    color: white;
+    padding: 50px 20px;
+  }
+  
+  #proyectos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #a020f0;
+    text-align: center;
+  }
+  
+  /* Grid para proyectos */
+  .grid-proyectos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  .proyecto {
+    position: relative;
+    background: #2c2c2c;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 1.2rem;
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  .proyecto p {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #a020f0;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(160, 32, 240, 0.6);
+  }
+  
+  /* Efecto hover con neón morado */
+  .proyecto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px #a020f0, 0 0 40px #a020f0;
+    border: 2px solid #a020f0;
+  }
+  
+  .proyecto.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+/* Sección4: Misión y Visión */
+#mision-vision {
+    background: #0d0d0d;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  #mision-vision h2 {
+    font-size: 2.5rem;
+    color: #a020f0;
+    margin-bottom: 40px;
+  }
+  
+  .contenedor-mv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .mision, .vision {
+    background: #111111;
+    border: 2px solid #a020f0;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    text-align: left;
+  }
+  
+  .mision h3, .vision h3 {
+    font-size: 1.8rem;
+    color: #a020f0;
+    margin-bottom: 15px;
+  }
+  
+  .mision p, .vision p {
+    font-size: 1rem;
+    color: #d3d3d3;
+    line-height: 1.6;
+  }
+
+  /* Sección 5: Contacto */
+  #contacto {
+    background: black;
+    color: #a020f0;
+  }
+  
+  /* Animaciones */
+  .fade-in {
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
