@@ -1,5 +1,3 @@
-// script.js
-
 // Animación de partículas en el canvas
 const canvas = document.getElementById("galaxy");
 const ctx = canvas.getContext("2d");
@@ -14,8 +12,8 @@ function Particle(x, y) {
   this.y = y;
   this.vx = (Math.random() - 0.5) * 0.5;
   this.vy = (Math.random() - 0.5) * 0.5;
-  this.radius = Math.random() * 2;
-  this.color = Math.random() > 0.7 ? "#a020f0" : "white"; // Morado o blanco
+  this.radius = Math.random() * 3.5;
+  this.color = Math.random() > 0.6 ? "#a020f0" : "white"; 
 
   this.draw = function () {
     ctx.beginPath();
@@ -66,7 +64,7 @@ const proyectos = document.querySelectorAll(".proyecto");
 function animateOnScroll() {
   proyectos.forEach((proyecto) => {
     const rect = proyecto.getBoundingClientRect();
-    if (rect.top <= window.innerHeight * 0.75) {
+    if (rect.top <= window.innerHeight * 0.8) {
       proyecto.classList.add("visible");
     }
   });

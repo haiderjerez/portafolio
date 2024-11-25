@@ -39,7 +39,7 @@
   nav a {
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     transition: color 0.3s;
   }
   
@@ -87,16 +87,38 @@
   }
   
   #about-me h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: #a020f0;
     margin-bottom: 20px;
+    margin-right: 50px;
+  }
+
+  .about-me-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .about-me-card {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    max-width: 300px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(160, 32, 240, 0.5);
+    animation: pulsar 2s infinite;
+    text-align: left;
+    font-size: 1rem;
+    border: 1px solid #a020f0;
+    position: relative;
   }
   
   #about-me p {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     max-width: 800px;
     margin: 0 auto;
-    line-height: 1.8;
+    line-height: 1.6;
     color: #d3d3d3;
   }
   
@@ -108,47 +130,93 @@
   }
   
   #proyectos h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     margin-bottom: 20px;
     color: #a020f0;
     text-align: center;
+    margin-right: 50px;
   }
+
+  .boxIcon1 {
+    display: flex;
+    justify-content: space-around;
+    width: 32%;
+    height: 22%;
+    overflow: hidden;
+    margin: auto;
+  }
+
+  .boxIcon2 {
+    display: flex;
+    justify-content: space-around;
+    width: 27%;
+    height: 20%;
+    overflow: hidden;
+    margin: auto;
+  }
+
+  .boxIcon3 {
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+    height: 22%;
+    overflow: hidden;
+    margin: auto;
+  }
+
   
   /* Grid para proyectos */
   .grid-proyectos {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(1, 4fr);
+    gap: 15px;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1000px;
   }
   
   .proyecto {
     position: relative;
     background: #2c2c2c;
-    padding: 40px 20px;
+    width: 800px; 
+    height: 550px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     text-align: center;
     font-size: 1.2rem;
     transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
     opacity: 0;
+    overflow: hidden;
     transform: translateY(50px);
+    margin: auto;
   }
   
   .proyecto p {
     position: absolute;
-    top: -20px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: #1a1a1a;
+    background: rgba(26, 26, 26, 0.8); 
     color: #a020f0;
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: 5px 10px;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(160, 32, 240, 0.6);
   }
   
+  .proyecto img {
+    width: 70%;
+    height: 70%; 
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 10px;
+    object-fit: cover;
+  }
+
+  .proyecto:hover img {
+    transform: scale(1.05); 
+  }
+
   /* Efecto hover con neón morado */
   .proyecto:hover {
     transform: translateY(-10px);
@@ -167,12 +235,14 @@
     color: white;
     padding: 50px 20px;
     text-align: center;
+
   }
   
   #mision-vision h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: #a020f0;
     margin-bottom: 40px;
+    margin-right: 25px;
   }
   
   .contenedor-mv {
@@ -187,18 +257,20 @@
     border: 2px solid #a020f0;
     border-radius: 10px;
     padding: 20px;
-    max-width: 400px;
+    max-width: 300px;
     text-align: left;
+    box-shadow: 0 0 15px rgba(160, 32, 240, 0.5); 
+    animation: pulsar 2s infinite; 
   }
   
   .mision h3, .vision h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #a020f0;
     margin-bottom: 15px;
   }
   
   .mision p, .vision p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #d3d3d3;
     line-height: 1.6;
   }
@@ -207,6 +279,7 @@
   #contacto {
     background: black;
     color: #a020f0;
+    overflow: hidden;
   }
   
   /* Animaciones */
@@ -222,4 +295,17 @@
       opacity: 1;
     }
   }
+
+  /* Animación de destello */
+@keyframes pulsar {
+  0% {
+    box-shadow: 0 0 15px rgba(160, 32, 240, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(160, 32, 240, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(160, 32, 240, 0.5);
+  }
+}
   
