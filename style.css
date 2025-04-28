@@ -415,66 +415,6 @@
     filter: brightness(1);
   }
 
-  .proyecto-content {
-    padding: 1.8rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    position: relative;
-    z-index: 2;
-    background: linear-gradient(to bottom, transparent, rgba(44, 44, 44, 0.9));
-  }
-
-  .proyecto * {
-    text-decoration: none !important;
-  }
-
-  .proyecto a {
-    text-decoration: none !important;
-  }
-
-  .proyecto h3 {
-    color: #a020f0;
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 1rem 1.5rem;
-    margin: 0;
-    text-decoration: none !important;
-  }
-
-  .proyecto h3:hover {
-    color: white;
-    transform: translateY(-2px);
-    text-decoration: none !important;
-  }
-
-  .proyecto p {
-    color: #a020f0;
-    font-size: 1.3rem;
-    text-align: center;
-    padding: 1rem 1.5rem;
-    background: rgba(44, 44, 44, 0.9);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(160, 32, 240, 0.3);
-    margin: 0;
-    text-decoration: none;
-  }
-
-  .proyecto p::before {
-    display: none;
-  }
-
-  .proyecto p:hover {
-    background: #a020f0;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(160, 32, 240, 0.4);
-    text-decoration: none;
-  }
-
   .boxIcon1, .boxIcon2, .boxIcon3 {
     display: flex;
     justify-content: center;
@@ -490,14 +430,54 @@
     width: 30px;
     height: 30px;
     transition: all 0.3s ease;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(0);
     opacity: 0.8;
+  }
+
+  .boxIcon1 img[src*="mysql"], .boxIcon2 img[src*="mysql"], .boxIcon3 img[src*="mysql"] {
+    width: 40px;
+    height: 40px;
   }
 
   .boxIcon1 img:hover, .boxIcon2 img:hover, .boxIcon3 img:hover {
     transform: scale(1.2) rotate(5deg);
     filter: brightness(1) invert(0);
     opacity: 1;
+  }
+
+  .proyecto-link {
+    display: block;
+    position: relative;
+    z-index: 10;
+    margin: 1rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .proyecto-title {
+    display: inline-block;
+    color: #a020f0;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background: rgba(44, 44, 44, 0.9);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(160, 32, 240, 0.3);
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .proyecto-link:hover .proyecto-title {
+    background: #a020f0;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(160, 32, 240, 0.4);
   }
 
   .proyecto .tech-stack {
@@ -530,6 +510,8 @@
     width: 100%;
     height: 240px;
     overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
   }
 
   .proyecto .carousel-images {
@@ -537,6 +519,7 @@
     width: 200%;
     height: 100%;
     transition: transform 0.5s ease;
+    pointer-events: none;
   }
 
   .proyecto .carousel-images img {
@@ -544,6 +527,7 @@
     height: 100%;
     object-fit: cover;
     flex-shrink: 0;
+    pointer-events: none;
   }
 
   .carousel-buttons {
@@ -555,6 +539,7 @@
     justify-content: center;
     gap: 10px;
     z-index: 2;
+    pointer-events: none;
   }
 
   .carousel-dot {
@@ -587,6 +572,7 @@
     z-index: 2;
     transition: all 0.3s ease;
     opacity: 0;
+    pointer-events: auto;
   }
 
   .carousel:hover .carousel-arrow {
@@ -623,68 +609,192 @@
   }
 
   /* Media Queries */
-  @media (max-width: 768px) {
+  @media (max-width: 390px) {
+    body {
+        font-size: 14px;
+    }
+
+    /* Navegación */
     nav {
-      flex-direction: column;
-      padding: 15px;
+        flex-direction: column;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(160, 32, 240, 0.2);
     }
 
     nav a {
-      font-size: 1.4rem;
-      margin: 5px 0;
+        font-size: 1.3rem;
+        margin: 6px 0;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background: rgba(160, 32, 240, 0.1);
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    nav a:hover {
+        background: rgba(160, 32, 240, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(160, 32, 240, 0.2);
+    }
+
+    /* Sección About Me */
+    #about-me {
+        padding: 2rem 1rem;
+    }
+
+    .about-me-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .about-me-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 1.5rem;
+        margin: 0;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(160, 32, 240, 0.2);
+        box-shadow: 0 0 20px rgba(160, 32, 240, 0.2);
+    }
+
+    #about-me h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        left: 0;
+    }
+
+    #about-me p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #d3d3d3;
+    }
+
+    /* Sección Proyectos */
+    #proyectos {
+        padding: 2rem 1rem;
     }
 
     .grid-proyectos {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      padding: 0 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
     }
-    
+
     .proyecto {
-      max-width: 100%;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 15px;
+        background: linear-gradient(145deg, #2c2c2c, #1f1f1f);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
     }
 
-    .proyecto-content {
-      padding: 1.5rem;
+    .proyecto .carousel {
+        height: 200px;
     }
 
-    .proyecto p {
-      font-size: 1.2rem;
-      padding: 0.8rem 1.2rem;
+    .proyecto .carousel-images img {
+        height: 200px;
+    }
+
+    .proyecto-title {
+        font-size: 1.2rem;
+        padding: 1rem;
+        margin: 1rem 0;
     }
 
     .boxIcon1, .boxIcon2, .boxIcon3 {
-      gap: 0.6rem;
-      padding: 0.8rem;
+        padding: 1rem;
+        gap: 0.8rem;
+    }
+  }
+
+  @media (min-width: 391px) and (max-width: 768px) {
+    .about-me-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+
+    .about-me-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 2rem;
+    }
+
+    .grid-proyectos {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+
+    .proyecto {
+        width: 100%;
+        max-width: 100%;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .grid-proyectos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .grid-proyectos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+        padding: 0 2.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid-proyectos {
+        padding: 0 1rem;
+    }
+
+    .proyecto-title {
+        font-size: 1.1rem;
+        padding: 0.7rem 1rem;
     }
 
     .boxIcon1 img, .boxIcon2 img, .boxIcon3 img {
-      width: 28px;
-      height: 28px;
+        width: 22px;
+        height: 22px;
+    }
+
+    .boxIcon1 img[src*="mysql"], .boxIcon2 img[src*="mysql"], .boxIcon3 img[src*="mysql"] {
+        width: 32px;
+        height: 32px;
     }
 
     h1 {
-        font-size: clamp(2.4rem, 5vw, 3.5rem);
+        font-size: 2.2rem;
     }
 
     h2 {
-        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        font-size: 1.6rem;
     }
 
     h3 {
-        font-size: clamp(1.4rem, 3vw, 2rem);
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .grid-proyectos {
-        grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media (max-width: 1199px) and (min-width: 768px) {
-    .grid-proyectos {
-        grid-template-columns: repeat(2, 1fr);
+        font-size: 1.2rem;
     }
   }
 
