@@ -72,3 +72,46 @@ function animateOnScroll() {
 
 window.addEventListener("scroll", animateOnScroll);
 animateOnScroll();
+
+// Control del carrusel
+function moveCarousel(carouselId, direction) {
+    const carousel = document.getElementById(carouselId);
+    const dots = carousel.parentElement.querySelectorAll('.carousel-dot');
+    let currentIndex = parseInt(carousel.getAttribute('data-index') || 0);
+    
+    // Actualizar índice
+    currentIndex = (currentIndex + direction + 2) % 2; // Solo 2 imágenes
+    
+    // Mover las imágenes
+    carousel.style.transform = `translateX(-${currentIndex * 50}%)`;
+    
+    // Actualizar dots
+    dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+    
+    // Guardar el índice actual
+    carousel.setAttribute('data-index', currentIndex);
+}
+
+// Click en los dots
+document.querySelectorAll('.carousel-dot').forEach(dot => {
+    dot.addEventListener('click', function() {
+        const carouselId = this.closest('.carousel').querySelector('.carousel-images').id;
+        const targetIndex = parseInt(this.getAttribute('data-index'));
+        const currentIndex = parseInt(document.getElementById(carouselId).getAttribute('data-index') || 0);
+        moveCarousel(carouselId, targetIndex - currentIndex);
+    });
+});
+
+// Inicializar carruseles
+document.addEventListener('DOMContentLoaded', function() {
+    const carousels = document.querySelectorAll('.carousel-images');
+    carousels.forEach(carousel => {
+        carousel.setAttribute('data-index', '0');
+    });
+});

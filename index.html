@@ -1,146 +1,286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio</title>
+    <meta name="description" content="Portafolio de Haider Jerez - Full Stack Developer">
+    <title>Portafolio | Haider Jerez</title>
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <!-- Navegación -->
   <header>
     <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#about-me">About Me</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#mision-vision">Misión y Visión</a>
-      <a href="#contacto">Contacto</a>
+            <a href="#inicio" aria-label="Ir a inicio">Inicio</a>
+            <a href="#about-me" aria-label="Ir a sobre mí">About Me</a>
+            <a href="#proyectos" aria-label="Ir a proyectos">Proyectos</a>
+            <a href="#mision-vision" aria-label="Ir a misión y visión">Misión y Visión</a>
+            <a href="#contacto" aria-label="Ir a contacto">Contacto</a>
     </nav>
   </header>
 
-  <!-- Sección 1: Inicio -->
-  <section id="inicio">
-    <canvas id="galaxy"></canvas>
+    <main>
+        <section id="inicio" aria-label="Sección de inicio">
+            <div id="galaxy">
+                <script>
+                    function createGalaxy() {
+                        const galaxy = document.getElementById('galaxy');
+                        
+                        // Crear estrellas normales (cantidad significativamente aumentada)
+                        for (let i = 0; i < 300; i++) {
+                            const star = document.createElement('div');
+                            const size = Math.random();
+                            if (size > 0.9) {
+                                star.className = 'star large';
+                            } else if (size > 0.6) {
+                                star.className = 'star medium';
+                            } else {
+                                star.className = 'star';
+                            }
+                            star.style.left = `${Math.random() * 100}%`;
+                            star.style.top = `${Math.random() * 100}%`;
+                            star.style.animationDelay = `${Math.random() * 5}s`;
+                            galaxy.appendChild(star);
+                        }
+                        
+                        // Crear estrellas púrpuras (aumentadas)
+                        for (let i = 0; i < 80; i++) {
+                            const purpleStar = document.createElement('div');
+                            purpleStar.className = 'star purple-star';
+                            purpleStar.style.left = `${Math.random() * 100}%`;
+                            purpleStar.style.top = `${Math.random() * 100}%`;
+                            purpleStar.style.animationDelay = `${Math.random() * 4}s`;
+                            galaxy.appendChild(purpleStar);
+                        }
+                        
+                        // Crear nebulosas (más cantidad y variedad)
+                        for (let i = 0; i < 12; i++) {
+                            const nebula = document.createElement('div');
+                            nebula.className = 'nebula';
+                            nebula.style.left = `${Math.random() * 100}%`;
+                            nebula.style.top = `${Math.random() * 100}%`;
+                            nebula.style.animationDelay = `${Math.random() * 15}s`;
+                            nebula.style.transform = `rotate(${Math.random() * 360}deg)`;
+                            nebula.style.opacity = 0.2 + Math.random() * 0.3; // Opacidad variable
+                            galaxy.appendChild(nebula);
+                        }
+                        
+                        // Crear estrellas fugaces (más frecuentes y en diferentes direcciones)
+                        const createShootingStar = () => {
+                            const shootingStar = document.createElement('div');
+                            shootingStar.className = 'shooting-star';
+                            const startPos = Math.random() * 100;
+                            shootingStar.style.left = `${startPos}%`;
+                            shootingStar.style.top = '0%';
+                            const angle = Math.random() * 60 - 30; // Ángulo entre -30 y 30 grados
+                            shootingStar.style.transform = `rotate(${angle}deg)`;
+                            galaxy.appendChild(shootingStar);
+                            
+                            setTimeout(() => {
+                                shootingStar.remove();
+                            }, 2000);
+                        };
+
+                        // Crear estrellas fugaces cada 2 segundos
+                        setInterval(createShootingStar, 2000);
+                        // Crear múltiples estrellas fugaces iniciales
+                        for(let i = 0; i < 3; i++) {
+                            setTimeout(() => createShootingStar(), Math.random() * 1000);
+                        }
+                        
+                        // Crear constelaciones (aumentadas)
+                        for (let i = 0; i < 8; i++) {
+                            const constellation = document.createElement('div');
+                            constellation.className = 'constellation';
+                            constellation.style.left = `${Math.random() * 80}%`;
+                            constellation.style.top = `${Math.random() * 80}%`;
+                            constellation.style.setProperty('--rotation', `${Math.random() * 360}deg`);
+                            galaxy.appendChild(constellation);
+                        }
+                    }
+                    
+                    // Iniciar la galaxia cuando se carga la página
+                    window.addEventListener('load', createGalaxy);
+                </script>
+            </div>
     <div class="content">
-      <h1>
-        Full Stack Developer
-      </h1>
-      <h2>
-        Haider Jerez 👑 
-      </h2>
-      <h3>
-        Nosotros Escribimos Nuestro Propio Destino  
-      </h3>
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" />
+                <h1>Full Stack Developer</h1>
+                <h2>Haider Jerez 👑</h2>
+                <h3>Nosotros Escribimos Nuestro Propio Destino</h3>
+                <div class="tech-stack">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original.svg" alt="Ruby" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot" />
+                </div>
     </div>
   </section>
 
-    <!-- Sección 2: About me -->
-  <section id="about-me">
+        <section id="about-me" aria-label="Sección sobre mí">
     <h2>About Me</h2>
     <div class="about-me-container">
       <div class="about-me-card">
         <p>
           Me caracterizo por mi excelente habilidad de atención al detalle.
- Mi experiencia en administración de bases de datos, desarrollo de backend y diseño de frontend me ha permitido desarrollar habilidades creativas, analíticas y técnicas. El trabajo en equipo y mi pensamiento critico me permiten enfocarme en el cumplimiento efectivo de metas y en mi crecimiento profesional.
+                        Mi experiencia en administración de bases de datos, desarrollo de backend y diseño de frontend me ha permitido desarrollar habilidades creativas, analíticas y técnicas. El trabajo en equipo y mi pensamiento crítico me permiten enfocarme en el cumplimiento efectivo de metas y en mi crecimiento profesional.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Sección 3: Proyectos -->
-  <section id="proyectos">
+        <section id="proyectos" aria-label="Sección de proyectos">
     <h2>Proyectos</h2>
     <div class="grid-proyectos">
-      <div class="proyecto">
-        <img src="img/CataDelVergel.png">
-        <a href="https://github.com/haiderjerez/cata-del-vergel.git">
-          <p>Cata Del Vergel 🔗</p>
-        </a>
-        <div class="boxIcon1">
-          <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-        </div>
-      </div>
-      <div class="proyecto">
-        <img src="img/HaciendaER.png">
-        <a href="https://github.com/haiderjerez/HaciendaNoruega.git">
-          <p>Hacienda Noruega 🔗</p>
-        </a>
-        <div class="boxIcon2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" />
-        </div>
-      </div>
-      <div class="proyecto">
-        <img src="img/s1000rr.png">
-        <a href="https://github.com/haiderjerez/s1000rr.git">
-          <p>BMW 🔗</p>
-        </a>
-        <div class="boxIcon3">
-          <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-        </div>
-      </div>
-      <div class="proyecto">
-        <img src="img/Wikywars.png">
-        <a href="https://github.com/haiderjerez/Wiky-Wars.git">
-          <p>Wikywars 🔗</p>
-        </a>
-        <div class="boxIcon1">
-          <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-        </div>
-      </div>
+                <article class="proyecto">
+                    <div class="carousel">
+                        <div class="carousel-images" id="urbanDarkCarousel">
+                            <img src="img/UrbanDark1.png" alt="Captura de pantalla 1 del proyecto UrbanDark">
+                            <img src="img/UrbanDark2.png" alt="Captura de pantalla 2 del proyecto UrbanDark">
+                        </div>
+                        <div class="carousel-buttons">
+                            <span class="carousel-dot active" data-index="0"></span>
+                            <span class="carousel-dot" data-index="1"></span>
+                        </div>
+                        <div class="carousel-arrow prev" onclick="moveCarousel('urbanDarkCarousel', -1)"></div>
+                        <div class="carousel-arrow next" onclick="moveCarousel('urbanDarkCarousel', 1)"></div>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                        <p>UrbanDark 🔗</p>
+                    </a>
+                    <div class="boxIcon1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                    </div>
+                </article>
+
+                <article class="proyecto">
+                    <div class="carousel">
+                        <div class="carousel-images" id="motoStoreCarousel">
+                            <img src="img/Valhalla1.png" alt="Captura de pantalla 1 del proyecto MotoStore">
+                            <img src="img/Valhalla2.png" alt="Captura de pantalla 2 del proyecto MotoStore">
+                        </div>
+                        <div class="carousel-buttons">
+                            <span class="carousel-dot active" data-index="0"></span>
+                            <span class="carousel-dot" data-index="1"></span>
+                        </div>
+                        <div class="carousel-arrow prev" onclick="moveCarousel('motoStoreCarousel', -1)"></div>
+                        <div class="carousel-arrow next" onclick="moveCarousel('motoStoreCarousel', 1)"></div>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                        <p>MotoStore 🔗</p>
+                    </a>
+                    <div class="boxIcon1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+                    </div>
+                </article>
+
+                <article class="proyecto">
+                    <img src="img/CataDelVergel.png" alt="Captura de pantalla del proyecto Cata Del Vergel">
+                    <a href="https://github.com/haiderjerez/cata-del-vergel.git" target="_blank" rel="noopener noreferrer">
+                        <p>Cata Del Vergel 🔗</p>
+                    </a>
+                    <div class="boxIcon1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                    </div>
+                </article>
+
+                <article class="proyecto">
+                    <img src="img/s1000rr.png" alt="Captura de pantalla del proyecto BMW">
+                    <a href="https://github.com/haiderjerez/s1000rr.git" target="_blank" rel="noopener noreferrer">
+                        <p>BMW 🔗</p>
+                    </a>
+                    <div class="boxIcon3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" />
+                    </div>
+                </article>
+
+                <article class="proyecto">
+                    <img src="img/HaciendaER.png" alt="Captura de pantalla del proyecto Hacienda Noruega">
+                    <a href="https://github.com/haiderjerez/HaciendaNoruega.git" target="_blank" rel="noopener noreferrer">
+                        <p>Hacienda Noruega 🔗</p>
+                    </a>
+                    <div class="boxIcon2">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" />
+                    </div>
+                </article>
+
+                <article class="proyecto">
+                    <img src="img/Wikywars.png" alt="Captura de pantalla del proyecto Wikywars">
+                    <a href="https://github.com/haiderjerez/Wiky-Wars.git" target="_blank" rel="noopener noreferrer">
+                        <p>Wikywars 🔗</p>
+                    </a>
+                    <div class="boxIcon1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                    </div>
+                </article>
+    </div>
   </section>
 
-   <!-- Sección 4: Mision y vision -->
-  <section id="mision-vision">
+        <section id="mision-vision" aria-label="Sección de misión y visión">
     <h2>Misión y Visión</h2>
     <div class="contenedor-mv">
-      <div class="mision">
+                <article class="mision">
         <h3>Misión</h3>
         <p>
           Mi misión es diseñar y desarrollar soluciones digitales que simplifiquen la vida de las personas, 
           combinando creatividad y funcionalidad para superar las expectativas de los usuarios.
         </p>
-      </div>
-      <div class="vision">
+                </article>
+                <article class="vision">
         <h3>Visión</h3>
         <p>
           Convertirme en un referente en el desarrollo de software, creando proyectos innovadores que impacten 
           positivamente en la tecnología y la sociedad.
         </p>
-      </div>
+                </article>
     </div>
   </section>
 
-  <!-- Sección 5: Contacto -->
-  <section id="contacto">
+        <section id="contacto" aria-label="Sección de contacto">
     <h2>Contacto</h2>
-    <div class="contet">
-      <a href="https://www.instagram.com/haider_jerez011/profilecard/?igsh=MWsyOG1kbW5tZDk0cQ==">
-        <img src="data:image/png;base64,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">
-      </a>
-      <a href="https://wa.me/qr/ZITKJDDL6ZNVH1">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABsCAYAAACPZlfNAAAAAXNSR0IArs4c6QAADkxJREFUeF7tXQvwb9UUXp/HkEKeRUmRMqSHpBSVSu+mh0dNlOdkkFQqEj1HLyW9DBomyqRCRYr0JPIsKiYkEaVCpPKa8dnfbd/87/+effbj7PM7v19z1sxv7r1z92Pt/Z3H2mt9ax3YKDO1A5gpbUdlbQRsxi6CEbARsBnbgRlTd7zDRsBmbAdmTN3xDhsBm7EdmDF1xztsBGzGdmDG1B3vsBGwGduBGVN35u8wkkuY2cpm9nQze4qZLW1mTzSzx5jZnWb2x4U/ALfNGD6LqTtTgJEUIJuZ2UZmtrYH6smZINzjAfyNmX3dzM6fJSCnHjCSAuRtZrarma2RCU5q8xvdBfBVM7sIwNWpnYZoN7WAkdzAzPY2s9dMeGN+a2YfBnDahOdNmm7qACO5qZkdbGYbJq2gv0a3Cjgz+yyA//Q3Td7IUwMYyZc5Y+EEM1s3bwm9t5ahojvuk73PlDDB4ICRfJqZHWNmbzKb6oDqgkelmZ0+5B03KGAk32pmx3lTPOH6amzySzO72cx+ZmZ3mdmf/e9+M3uqN/VluOjvC/8t4+UZhRP+2Mx2APD7wv6dug0CGMkn6d1gZtsVaH+hmX3bmfdXA/huQf8FXUi+3MxebWY7mdkKmeP8ycy27zJ/5nwPNZ84YH6jzjazZ2YorTtIVttnAGizqgrJdTx4b3DzLJcx+LsBnJLRvnPTiQJGchd32D3TzB6ZoPl/nQFysXuMnQJAB9zeheRjzWxPMzvQzFIP5GfonAjg370rOMmXPEm9sD+QuKiL3HtIV+8tie2rNiMp99YBZraPmQnEmHzfzHYEcEesYdf/n8gd5izBU51B8M4EZeX32wvAuQlte29CUobJ4d7TEpvvdufqWq9vN1fvgJF8n7tKj46t1swulVcDwN8S2k60CUn5LuW6enxk4p+b2UsA/KMvBXsFjOSOZvalyKNX76rD3HvtCADsa6FdxyX5Qn9RLRsZ6yve7O9lLb0BRvKlZqZne5vorPRaADIupl5IPsvMvmlmq0aUPcoZIanv66x19wKY97DfEDHd5fLZHMBNWRoP3Niv7Rt69EVU2Q2ALOKq0hdgV/qYVUhZeSTWAfC7qquZ0GAkH+cfj/J/tsn6AK6pqVZ1wEjqDHNki5IPuMfKBgB+UnMhkx6LpNxcPzKzZ7fMfSuAlWrqVhUwkvJeyCuhsH1Itp6Vd1Zso0m+yMx0By3Z0nZ/APKXVpHagH3eR4ZDyh3uLMFDqmg+JYOQ3MJ7ZEJ7ea/zm64E4C81VK4GGEnFsb7XotQl7nmuxT3shOR+7i77SMvCTnaA7VVj4TUB08FX0eImkfm+MgB5MpKE5L4+6iw3keSfZqbHi6zPqROS3zKzV7QotioAhYI6SRXAfLS4LdSxJwC5p5KEpEIo2zQ0vhnA85IGmXAjkmJxyQgJyQXO0Nqhq1q1ANPBd8uAMtcC0GKSxL3I5RlRjCokikPJmzB1QlKee4VoQrIxgKu6KN4ZMO+yEU0sJNsB0B0TFf8YPD7S8GIAW0cHG6ABScXS2iLR5wFouxijWtcATC9bvXSb5AYAq0e1eDACLOburx1lYKmE9isCEMdi6iQSRnoAQNsRILqeGoCJDq3NbpJdAZwV1eJBwI4wsw+mtPUsptS2iUPWaUZSHn3F8XSwbpJtAXytdLZOgPkzSCgafA+A1KitAPupmSXdjWZ2LwDx56dSXORa4SSFlZrkNAB7lCreFTBx9UKTnwhAzN2okHyCi+7mxsF2BnBOdPABGnjWcojyfReAZUrV6grYr3xCQtP8a6X6CxMO3U3jXwVg49KF992PpMhCSt5oknWd4fSDEh2KASO5opkpA6RJ7gCQzIoi+Sozu6RgAXIiF1PdCuZL7kJSNL7dAx2OdGTUg5IHm9OwC2DKKAklDJzhCDQhZRfTk6R49CXnk33du0z07qkTkkriCHFTbgQgx3G2dAFMfLx3BWZ8M4DTU7UhqQhuSSBz9Sl2Vel48vfQHgAo2vuiTlKC5GVmtklAoayNJPkI7yt8dCrILpr9KUcre3tG+4k3JSn6+AsCEy/nrEUxrbKkC2A60YdYsksAkLM2Wdx77DvuPbZ+YgelAsmo+Wti+0GaOWtR/A9ljDZJ1kW9cIAiwEjqtH5fQJGiKCtJhR9OTNjZuwUsAAVKp1pIfs55b3YLKLkJgCtyF1AKmAiWodv5SufgfGWuIp5tK+ZsjGm7BYASizJXpc7tXcK80qjEIG6SXQAoxyBLSgFTtkfIl1fsnCUpiy922N4IgGJPUy8k3+NSqT4WULQokaIUsOd67kaTLsVxH88J0YXwqBY0rnPhlRdPPVoPGmZK/gj5UovoEqWAtZnh5wDYuXRDnZvqoz4JoW2IA5zXuy0kXzp91X6R8+WpLnVKmTJZUgqYqF2y1JpEdS9E0S4Sz/mTI1jFUtpkUwCXF00yoU4R9nORE7gUMHnKQyZ1kdExdw89JVrcjTaPvAwUmcbVE/xq4ekrIojr0iTHAdg/d64iwDQJyRDZ/3oAnQugkFQ6bYwKUGzg5G5USXufDPLlQN9DACiVKUu6ACaenXKV58ttAHJzhhuVdh4QLehDkRV1emdm7VZmY5JvMbNPB7rtDSDl3LlI9y6AKaraREO+D0Asjyp56e7FrfdU7FxX/N4k+Xx3VlLovjrPn+RRzuX2/sBii+J5XQBTJr8y8ZtkWQCiDnQWkgr2iaCqcE6byLW1TU5C4DwC6Pm6G1IJQykLI6kxtw+0TY4Xzu3fBbCTfQJ3kz6qY3FByqJS2pBcxXPYY5QDWa47AbguNq7PqlSWzXxRksbRJV6I+QOR/IWZSfcmWcoZHSLYZkkXwNqez1qwsliqCcn1fIpPCutICfDHAhCvfTEhuZq/ANoYWmJwHVQKnC8VGLJgb3fFx3LKSzy0hi6AyRIMpQxd4dxHodBLMYgupCMqtEg/ys+Kia7eT3iGlWokLhDvuNYdmMogvt6VgDgJQMh4aNSDpJwHXwgoWWzdFgPmF9+Wx7t0zvsktvtzNlwGiGhibSlNc4fTVS7gPq6yDC008JgKBwMQFS9JSGrOULxuP2eYxQizjfN0BUw5zMplbpI9+qo56CvXnJdZtSZpo1saXQggudQSyTa+5prOGyRvTrZ0BaytpENnj0fbanwGpMIT1R+9gXlVN1EV56ISOfTfDSBEvI2O3RUwncPaqtWs0HehEZI6WGd7DKI7s3iDfQCEQiWLtI4kdHSiNnQCzL/HxK9Tca0mORBASlGVgv37fxeSa5mZ7rZUQ6JkvqRzE0k5xnURi6fSJBsC0Bm2SGoA9l5f87BJgWLzNXc1vrDXoS0U6dwh57ZPpqVFyjTdAkCxxGKpAVgsxeZQR+lSpZuJiPf0yyX0+ooTrg3g2th4PgOnzcPTeS86A+Yfi20mrJosD+APsQXX/H/nFlrTHbuUAN8l61G8Qvn8kir1uGJibbkGqj/1bAAiERVLLcBEy24D5EwAIfZQsfIpHR1lWoaR7jaF61UvKlVU7UapvknsrIT8gOMBhPLoUnWqVxTZ5UXpIKhE8pBsBkDk08HEn990mFUWZFNoSBk08k4oGqzavslCUl6ftjhgFYd4lTvMPxaVwCYCTchtVHy6T961jIa+KMr87JKbciodLJzOUfRk7oshFZJqvtVqgHnQ2k73a7j8XvnlHlZCUnerEulDIob0KrVqKFYDjKSyJ0PuljsBxOoMzhyQJPUIVByuLYKwVc2axTUBa6sGM5jR0ddVQHJ5V8Zd77k2N9NZrpiKPvJTTWoCJvq0EvOa5I0AxDN/WIhjKIvNpUTCUGaK1qlH4Wq1IxZVAHPcBX1cTRaW/mySZQCoRuLMiw9MimfSlkCvsrhK2IhVZM3ej1qAbW5mOrc0SXKtjmztJ9zBF05RxknMZ3mYy9eTm6y61AJM9QDlU2ySE1yovu18Vn1RfQxIciv/+RF93KdNVL5Ir4DpLdLsTFuZ66Gc3S0BhO6+Pva26pj+OzEiHKX4Js8F8LqqCswbrPMd5kLhMtfbvoiwJACVjW0UnxcmY0W/bX2xSJFfkkv19bVBJFXoS4fiUPmGuVNnRaRLda4BmHyEIQvwchf7WayGoifTCCBVgAvF0pTFcswQxgpJWX8CKmT1zt/v3u+shRPWAEylvkOPiwUBTJKibqv+oYwThfRV+SZFdGeqzqIoa70nPfhqBiLaqGRD6t6obO7uAGQZ9i6pSgUVISlzPfQiFrtJaUOxwvwpC9WnNJRY8EXn9Q7lV6eMs0gbfzGJkqYUqVhZ8/njFyXlZSs5p0MnwCLuqC56xfoqO1+FWFTR+ppcP52nFIhCrZ/iZrmiQ7HiZBOvwtMVsFhx4tyNKG2vaLCMFDF9F/7m0qD1vbLn+LtdMbEU9nBIF5ntyk/OLWZWurZF+nUFrK0ORRUFp2gQHV3eMcRdNXcPigFzJQ3EvA2a65kbLZaRgpty90zbZ4H1jtZngU/KXFMvzbsAphr0pZ861DtALh755C6d+8VW/41MJVIMXddXdUiOFc3bJXb8q5fdLxi0C2Bt7qj5qoh4otQeASRGcLQQmM8wUVGSSXNB9DnHs6c1utAFsDZ3lF7ICwFSJkvxxwE8JVvMJ/2aatkXXKeLdNH5Tne7wkNKv21MUeo6Sa3+RYD5b0POLV0ki0xsVi38slwCS+pifKqQUo6U3yWPuc53+uVEs/XZQxFm9FEAeWKKkhJSda7drhQwOTjFPlpwFwFQmHxQ8R9iU4Ke8qv15/x0pPsB/HBQJStMXgRYhXnHIQp3YASscOOG6jYCNtTOF847Ala4cUN1GwEbaucL5x0BK9y4obqNgA2184XzjoAVbtxQ3UbAhtr5wnlHwAo3bqhuI2BD7XzhvCNghRs3VLcRsKF2vnDe/wHhiV+ppHJD5QAAAABJRU5ErkJggg=="/>
-      </a>
-      <a href="www.linkedin.com/in/haider-jerez">
-        <img src="data:image/png;base64,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"/>    
-      </a>
-      <a href="https://github.com/haiderjerez">
-        <img src="data:image/png;base64,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"/>
-      </a>
+    <div class="contact-container">
+        <div class="social-links">
+            <a href="https://www.instagram.com/haider_jerez011?igsh=MWsyOG1kbW5tZDk0cQ==" class="instagram" target="_blank">
+                <img src="./assets/instagram.svg" alt="Instagram">
+                <span>Instagram</span>
+            </a>
+            <a href="https://wa.me/qr/ZITKJDDL6ZNVH1" class="whatsapp" target="_blank">
+                <img src="./assets/whatsapp.svg" alt="WhatsApp">
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://www.linkedin.com/in/haider-jerez/" class="linkedin" target="_blank">
+                <img src="./assets/linkedin.svg" alt="LinkedIn">
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/haiderjerez" class="github" target="_blank">
+                <img src="./assets/github.svg" alt="GitHub">
+                <span>GitHub</span>
+            </a>
+        </div>
+        <a href="https://deluxelicor.my.canva.site/haiderjerezcv" class="cv-button" target="_blank">
+            <img src="./assets/cv-icon.svg" alt="CV Icon">
+            <span>Ver mi CV</span>
+        </a>
+    </div>
     </section>
-  </div>
+    </main>
 
     <script src="app.js"></script>
 </body>
